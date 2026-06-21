@@ -18,10 +18,14 @@ fn hex_to_dec(hex_string: &str) -> u32 {
         ('e', 14),
         ('f', 15),
     ]);
-    let mut res: u32 = 0;
-    hex_string.chars().rev().enumerate().map(|(i, c) | {
-        let digit = map.get(&c).unwrap_or(&0);
-
-    }).sum()
+    hex_string
+        .chars()
+        .rev()
+        .enumerate()
+        .map(|(i, c)| {
+            let digit = data.get(&c).unwrap_or(&0); 
+            (*digit as u32) * 16u32.pow(i as u32)  
+        })
+        .sum()
 }
 
